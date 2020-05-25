@@ -1,25 +1,20 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {ThemeProvider} from "./containers/ThemeContainer";
+import ContextHookDemoComponent from "./components/ContextHookDemoComponent";
+import {UserProvider} from "./containers/UserContainer";
+import ContextReducerDemoComponent from "./components/ContextReducerDemoComponent";
 
 function App() {
+
+    // Here I have wrapped the component into the providers
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <ThemeProvider>
+          <ContextHookDemoComponent/>
+          <UserProvider>
+              <ContextReducerDemoComponent/>
+          </UserProvider>
+      </ThemeProvider>
   );
 }
 
